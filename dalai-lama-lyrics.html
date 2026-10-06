@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dalai Lama — 歌詞 | Aminadabu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#FAF7F1}
+  ::selection{background:rgba(201,90,146,.22);color:#322444}
+</style>
+</helmet>
+
+<div style="background:#FAF7F1;color:#322444;min-height:100vh;">
+
+  <!-- Header -->
+  <div style="max-width:820px;margin:0 auto;padding:64px 32px 0;">
+    <a href="./index.html" style="display:inline-flex;align-items:center;gap:10px;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:500;font-size:12px;letter-spacing:.2em;color:rgba(50,36,68,.6);text-decoration:none;">← Aminadabu トップへ</a>
+
+    <div style="display:flex;align-items:flex-end;gap:36px;margin-top:56px;flex-wrap:wrap;">
+      <img src="./images/disc-dalai-lama.jpg" alt="Dalai Lama アルバムジャケット" style="width:168px;aspect-ratio:1/1;object-fit:cover;border-radius:3px;box-shadow:0 18px 40px -22px rgba(50,36,68,.5);display:block;">
+      <div>
+        <p style="margin:0 0 14px;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:500;font-size:11px;letter-spacing:.32em;color:rgba(50,36,68,.5);">LYRICS ／ 歌詞と意訳</p>
+        <h1 style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,6vw,64px);line-height:1.1;letter-spacing:.01em;color:#322444;">Dalai Lama</h1>
+        <p style="margin:0;font-family:'Shippori Mincho',serif;font-weight:500;font-size:15px;letter-spacing:.14em;color:rgba(50,36,68,.65);">仏教経典にもとづく全6曲　経文とその意訳</p>
+      </div>
+    </div>
+
+    <p style="margin:44px 0 0;font-family:'Shippori Mincho',serif;font-weight:400;font-size:15px;line-height:2.4;letter-spacing:.05em;color:rgba(50,36,68,.8);text-wrap:pretty;">アルバム「Dalai Lama」の各曲は、般若心経をはじめとする仏教経典・真言をもとにしています。ここでは、歌われている経文と、その心をひらいた意訳をご紹介します。</p>
+
+    <div style="margin-top:40px;padding:30px 36px;background:#FFFFFF;border:1px solid rgba(50,36,68,.1);border-radius:6px;">
+      <p style="margin:0 0 16px;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:500;font-size:11px;letter-spacing:.3em;color:rgba(50,36,68,.5);">TRACKLIST ／ 曲順</p>
+      <sc-for list="{{ tracklist }}" as="tr" hint-placeholder-count="6">
+        <p style="margin:0 0 6px;font-family:'Shippori Mincho',serif;font-weight:500;font-size:15px;line-height:2;letter-spacing:.08em;color:rgba(50,36,68,.82);">{{ tr }}</p>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- Songs -->
+  <div style="max-width:820px;margin:0 auto;padding:72px 32px 120px;display:flex;flex-direction:column;gap:0;">
+    <sc-for list="{{ songs }}" as="song" hint-placeholder-count="6">
+      <div style="border-top:1px solid rgba(50,36,68,.14);padding:64px 0 68px;">
+        <div style="display:flex;align-items:baseline;gap:22px;margin-bottom:8px;">
+          <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:44px;line-height:1;color:rgba(201,90,146,.45);">{{ song.no }}</span>
+          <div>
+            <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:32px;line-height:1.2;letter-spacing:.01em;color:#322444;">{{ song.en }}</h2>
+            <p style="margin:6px 0 0;font-family:'Shippori Mincho',serif;font-weight:600;font-size:17px;letter-spacing:.12em;color:rgba(50,36,68,.75);">{{ song.ja }}</p>
+          </div>
+        </div>
+
+        <div style="margin-top:34px;padding:34px 38px;background:#FFFFFF;border:1px solid rgba(50,36,68,.1);border-radius:6px;box-shadow:0 24px 50px -38px rgba(50,36,68,.35);">
+          <p style="margin:0 0 18px;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:500;font-size:11px;letter-spacing:.3em;color:rgba(201,90,146,.75);">経文</p>
+          <sc-for list="{{ song.sutra }}" as="line" hint-placeholder-count="3">
+            <p style="margin:0 0 .9em;font-family:'Shippori Mincho',serif;font-weight:500;font-size:17px;line-height:2.3;letter-spacing:.1em;color:#322444;text-wrap:pretty;">{{ line }}</p>
+          </sc-for>
+          <p style="margin:14px 0 0;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:400;font-size:12px;letter-spacing:.1em;color:rgba(50,36,68,.5);">{{ song.source }}</p>
+        </div>
+
+        <div style="margin-top:36px;">
+          <p style="margin:0 0 18px;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:500;font-size:11px;letter-spacing:.3em;color:rgba(50,36,68,.5);">意訳</p>
+          <sc-for list="{{ song.trans }}" as="tline" hint-placeholder-count="4">
+            <p style="margin:0 0 1.1em;font-family:'Shippori Mincho',serif;font-weight:400;font-size:15.5px;line-height:2.35;letter-spacing:.05em;color:rgba(50,36,68,.84);text-wrap:pretty;">{{ tline }}</p>
+          </sc-for>
+          <sc-if value="{{ song.note }}">
+            <p style="margin:10px 0 0;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:400;font-size:12.5px;line-height:2;letter-spacing:.06em;color:rgba(50,36,68,.55);">{{ song.note }}</p>
+          </sc-if>
+        </div>
+      </div>
+    </sc-for>
+
+    <div style="border-top:1px solid rgba(50,36,68,.14);padding-top:48px;text-align:center;">
+      <a href="https://linkco.re/cN6Efcvb?lang=jp" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:14px 34px;border:1px solid rgba(50,36,68,.3);border-radius:999px;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:500;font-size:13px;letter-spacing:.18em;color:#322444;text-decoration:none;">アルバムを聴く・購入する</a>
+      <p style="margin:26px 0 0;"><a href="./index.html" style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:12px;letter-spacing:.2em;color:rgba(50,36,68,.55);text-decoration:none;">← Aminadabu トップへ戻る</a></p>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      tracklist: [
+        '1. Shiki soku Ku　色即空',
+        '2. Peace Pagoda　平和パゴダ',
+        '3. Wisdom Ocean　智慧の海',
+        '4. Aiyu-sui　愛癒水',
+        '5. Twelve Lights　十二光',
+        '6. Kanzeon　観世音',
+      ],
+      songs: [
+        {
+          no: '1', en: 'Shiki soku Ku', ja: '色即空',
+          sutra: [
+            '諦羯諦　波羅羯諦　波羅僧羯諦　羯諦羯諦　波羅羯諦　波羅僧羯諦',
+            '摩訶般若波羅蜜心経　観自在菩薩　行深般若波羅蜜時　照見五蘊皆空',
+            '度一切苦厄　舎利子　色不異空　空不異色　色即是空　空即是色',
+          ],
+          source: '＊「般若心経」より',
+          trans: [
+            'さあ、悟りに目覚めよう。いつでも、いま直ちに目覚めよう。',
+            '川を渡り、浄土の悟りへと至る智慧は、観自在菩薩の慈悲から生まれました。',
+            'いま起きていることはすべて、あなたの心が創り出したものであり、やがて消えゆく途中にあります。',
+            'そのことに目覚めるとき、苦しみは消え、あなたは自らの人生を、自らの手で創りはじめます。',
+            'あなたの人生を含むすべての現象は、心が創り出しているのですから。',
+          ],
+        },
+        {
+          no: '2', en: 'Peace Pagoda', ja: '平和パゴダ',
+          sutra: [
+            '一心頂礼　万徳円満　釈迦如来　真身舎利　本地法身',
+            '法界塔婆　我等礼敬　為我現身　入我我入　仏加持故',
+            '我証菩提　以仏神力　利益衆生　発菩提心　修菩薩行',
+            '同入円寂　平等大智　今将頂礼',
+          ],
+          source: '＊「舎利礼文」より',
+          trans: [
+            '心をひとつに集中し、仏を礼拝いたします。仏よ、あなたは宇宙に満ちる功徳そのもの。',
+            'その心と身体と遺骨の真実の姿は、宇宙の大いなる霊性です。',
+            '仏の魂はパゴダに宿り、それは三千世界そのもの。パゴダを礼拝するとき、私は仏の中に入り、仏は私の心に現れます。',
+            '仏の力をいただいて悟りに目覚め、その威神力をもって、人々に功徳をめぐらせます。',
+            'だからこそ悟りを求め、菩薩の行いにこの身を捧げるのです。いま、共に仏を礼拝いたしましょう。',
+            '深い悟りの世界に入るとき、あなたの存在そのものから、不二の智慧が生まれます。',
+          ],
+        },
+        {
+          no: '3', en: 'Wisdom Ocean', ja: '智慧の海',
+          sutra: [
+            'オンボウジシッター　ボーダハダヤミー',
+            'オンサンマヤ　サードバン',
+            '願似此功徳　平等施一切　同発菩提心　往生安楽国',
+          ],
+          source: '＊「発菩提心真言」「三昧耶戒真言」および「総回向偈」より',
+          trans: [
+            '悟りの智慧と、修行へと向かう揺るぎない志を求めましょう。',
+            'あなたは誓いを果たし、生きとし生けるものすべての幸せを願う菩薩なのですから。',
+            'この修行の功徳を、あまねくすべての存在に捧げられますように。',
+            '誰もが悟りを求める心を起こし、無限の喜びと安らぎの世界に、共に生まれゆけますように。',
+          ],
+        },
+        {
+          no: '4', en: 'Aiyu-sui', ja: '愛癒水',
+          sutra: ['南無アミリタ'],
+          source: '',
+          trans: [
+            '天の甘露のように、永遠の若さと命を与えてくださる阿弥陀仏に、帰依いたします。',
+          ],
+          note: '＊アミリタとは、永遠の若さと命を与える「天の水」のことです。',
+        },
+        {
+          no: '5', en: 'Twelve Lights', ja: '十二光',
+          sutra: [
+            '無量光仏　無辺光仏　無碍光仏　無対光仏',
+            '炎王光仏　清浄光仏　歓喜光仏　智慧光仏',
+            '不断光仏　難思光仏　無称光仏　超日月光仏',
+            '一切精霊生極楽　上品蓮台成正覚',
+          ],
+          source: '＊「無量寿経」および「大日経」より',
+          trans: [
+            '量ることのできない光、果てのない光、何ものにも妨げられない光、比べるもののない光、炎の王のごとく輝く光——その仏の光を讃えます。',
+            '清らかな光、歓喜の光、智慧の光、絶えることのない光——その仏の光を讃えます。',
+            '思いはかることのできない光、言葉に尽くせない光、日と月を超える光——その仏の光を讃えます。',
+            '救われぬすべての精霊が、無限の喜びの世界・極楽に生まれ変わり、最上の蓮の台の上で悟りを得られますように。',
+          ],
+        },
+        {
+          no: '6', en: 'Kanzeon', ja: '観世音',
+          sutra: [
+            '観世音　観世音　ボーディ・サットヴァ　南無アミリタ',
+            '観世音　南無佛　与佛有因　与佛有縁　佛法僧縁　常楽我浄',
+            '朝念観世音　暮念観世音　念念従心起　念念不離心',
+          ],
+          source: '＊「延命十句観音経」より　＊コーラス：「観音経」（法華経）より',
+          trans: [
+            '観世音菩薩よ、私は仏に帰依いたします。生きとし生けるものすべての苦しみが、癒されますように。',
+            '仏とその教えによって、心のいちばん深くにある仏性に目覚めます。',
+            'その目覚めの功徳と、絶えざる浄化と心の喜びを、縁あるすべての人々と分かち合います。',
+            '功徳を分かち合うために、朝目覚めるときも、夜眠りにつくときも、観世音を心に念じます。',
+            '心に何が起ころうとも、この祈りがあなたから離れることはありません。',
+          ],
+        },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
